@@ -1,0 +1,37 @@
+<div class="page-container scrollable">
+  <div
+    class="row"
+    *ngIf="value$ | async as value"
+  >
+    <div class="five columns">
+      <h1>Text Area</h1>
+      <p>Auto grow work</p>
+      <textarea
+        soho-textarea
+        [ngModel]="value"
+        [autoGrow]="true"
+      ></textarea>
+    </div>
+
+    <div class="five columns">
+      <h1>Text Area Hidden</h1>
+      <p>Auto grow doesn't work</p>
+      <div [ngStyle]="{ display: hide ? 'none' : 'inherit' }">
+        <textarea
+          #textareaRefresh
+          soho-textarea
+          [ngModel]="value"
+          [autoGrow]="true"
+        ></textarea>
+      </div>
+      <p>
+        <button
+          soho-button="primary"
+          (click)="onButtonClick()"
+        >
+          {{ hide ? 'Unhide' : 'Hide' }}
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
